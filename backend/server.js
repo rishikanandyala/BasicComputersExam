@@ -131,21 +131,7 @@ app.post("/api/reports", async (req, res) => {
 });
 
 // Retrieve all student reports
-app.get("/api/reports", async (req, res) => {
-  try {
-    const reports = await ExamReport.find()
-      .sort({ submittedAt: -1 })
-      .lean();
 
-    res.json(reports);
-  } catch (error) {
-    console.error("Report fetch error:", error);
-
-    res.status(500).json({
-      message: "Failed to fetch reports",
-    });
-  }
-});
 
 async function startServer() {
   try {
